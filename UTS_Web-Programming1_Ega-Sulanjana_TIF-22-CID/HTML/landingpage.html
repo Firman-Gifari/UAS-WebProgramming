@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <title>Landing page</title>
+  </head>
+  <body>
+    <!-- PROMO -->
+    <div class="bg-indigo-600 px-4 py-3 text-white">
+      <p class="text-center text-sm font-medium">
+        PROMO 12.12 HINGGA 99%
+        <a href="comingsoon.html" class="inline-block underline"
+          >Khusus di jam 00.00 WIB</a
+        >
+      </p>
+    </div>
+    <!-- END PROMO -->
+
+    <!-- NAVBAR -->
+    <header class="bg-gray-50">
+      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div
+          class="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between"
+        >
+          <div>
+            <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
+              AQILA WARDROBE
+            </h1>
+
+            <p class="mt-1.5 text-sm text-gray-500">
+              Pusat fashion se-Indonesia, dari tahun 2000
+            </p>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <button type="button">
+              <a
+                class="inline-flex items-center justify-center gap-1.5 rounded border border-gray-200 bg-white px-5 py-3 text-gray-900 transition hover:text-gray-700 focus:outline-none focus:ring text-sm font-medium"
+                href="#"
+                onclick="keluar()"
+              >
+                Keluar
+              </a>
+            </button>
+
+            <button
+              class="inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+              type="button"
+            >
+              <a href="comingsoon.html"> Akun </a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script>
+        function keluar() {
+          // 1. Ambil session token dari localStorage
+          const sessionToken = localStorage.getItem("session_token");
+
+          // 2. Buat objek FormData untuk mengirimkan data ke server
+          const formData = new FormData();
+          formData.append("session_token", sessionToken);
+
+          // 3. Kirim permintaan POST ke server untuk melakukan logout
+          axios
+            .post(
+              "https://client-server-nova.000webhostapp.com/logout.php",
+              formData
+            )
+            .then((response) => {
+              // 4. Periksa respons dari server
+              if (response.data.status === "success") {
+                // Jika logout berhasil, hapus session token dan arahkan ke halaman login
+                localStorage.removeItem("session_token");
+                window.location.href = "login.html";
+              } else {
+                // Jika logout gagal, tampilkan pesan kesalahan
+                alert("Logout gagal. Silahkan coba lagi.");
+              }
+            })
+            .catch((error) => {
+              // 5. Tangani jika terjadi kesalahan saat logout
+              console.error("Terjadi kesalahan saat logout:", error);
+            });
+        }
+      </script>
+    </header>
+    <!-- END NAVBAR -->
+
+    <!-- BANNER -->
+    <section class="mt-8">
+      <div class="my-5 lg:items-center">
+        <div class="mx-auto max-w-xl text-center">
+          <h1 class="text-3xl font-extrabold sm:text-5xl">
+            Selamat Datang
+            <strong id="uname" class="font-extrabold text-indigo-600 sm:block">
+            </strong>
+          </h1>
+          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+          <script>
+            function getNama() {
+              const nama = localStorage.getItem("nama");
+              return nama ? nama : "Tamu";
+            }
+
+            const uname = document.getElementById("uname");
+            uname.innerText = `Selamat datang, ${getNama()}!`;
+          </script>
+          <p class="mt-4 sm:text-xl/relaxed">
+            Selamat berjelajah di Dunia fashion "AQILA WARDROBE", Enjoy of the
+            Shopping, and happy nice day 😘
+          </p>
+
+          <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              class="block w-full rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-indigo-600 focus:outline-none focus:ring active:bg-indigo-600 sm:w-auto"
+              href="#produk"
+            >
+              Belanja Sekarang!!
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END BANNER -->
+
+    <!-- PRODUCT -->
+    <section id="produk">
+      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <header>
+          <span class="flex items-center">
+            <h2 class="pr-6 text-xl font-bold text-gray-900 sm:text-3xl">
+              Produk Kami
+            </h2>
+
+            <span class="h-px flex-1 bg-black"></span>
+          </span>
+        </header>
+
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <li>
+            <a href="muslim-outfit.html" class="group block overflow-hidden">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1669366530593-8c5ec8050f1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fHJlbGlnaW91cyUyMG91dGZpdHxlbnwwfHwwfHx8MA%3D%3D"
+                alt=""
+                class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+              />
+
+              <div class="relative bg-white pt-3">
+                <p class="mt-2">
+                  <span class="tracking-wider text-gray-900">
+                    Muslim Outfit
+                  </span>
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="casual-outfit.html" class="group block overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1536243298747-ea8874136d64?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+              />
+
+              <div class="relative bg-white pt-3">
+                <p class="mt-2">
+                  <span class="tracking-wider text-gray-900">
+                    Casual Outfit
+                  </span>
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="vintage-outfit.html" class="group block overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1649449446718-33d2753a36eb?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+              />
+
+              <div class="relative bg-white pt-3">
+                <p class="mt-2">
+                  <span class="tracking-wider text-gray-900">
+                    Vintage Outfit
+                  </span>
+                </p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="streetwear-outfit.html"
+              class="group block overflow-hidden"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1644568722968-c21549419c4c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+                class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+              />
+
+              <div class="relative bg-white pt-3">
+                <p class="mt-2">
+                  <span class="tracking-wider text-gray-900">
+                    Streetwear Outfit
+                  </span>
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- END PRODUCT -->
+
+    <!-- TESTIMONIAL -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css"
+      rel="stylesheet"
+    />
+
+    <script type="module">
+      import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+
+      const keenSliderActive = document.getElementById("keen-slider-active");
+      const keenSliderCount = document.getElementById("keen-slider-count");
+
+      const keenSlider = new KeenSlider(
+        "#keen-slider",
+        {
+          loop: true,
+          defaultAnimation: {
+            duration: 750,
+          },
+          slides: {
+            origin: "center",
+            perView: 1,
+            spacing: 16,
+          },
+          breakpoints: {
+            "(min-width: 640px)": {
+              slides: {
+                origin: "center",
+                perView: 1.5,
+                spacing: 16,
+              },
+            },
+            "(min-width: 768px)": {
+              slides: {
+                origin: "center",
+                perView: 1.75,
+                spacing: 16,
+              },
+            },
+            "(min-width: 1024px)": {
+              slides: {
+                origin: "center",
+                perView: 3,
+                spacing: 16,
+              },
+            },
+          },
+          created(slider) {
+            slider.slides[slider.track.details.rel].classList.remove(
+              "opacity-40"
+            );
+
+            keenSliderActive.innerText = slider.track.details.rel + 1;
+            keenSliderCount.innerText = slider.slides.length;
+          },
+          slideChanged(slider) {
+            slider.slides.forEach((slide) => slide.classList.add("opacity-40"));
+
+            slider.slides[slider.track.details.rel].classList.remove(
+              "opacity-40"
+            );
+
+            keenSliderActive.innerText = slider.track.details.rel + 1;
+          },
+        },
+        []
+      );
+
+      const keenSliderPrevious = document.getElementById(
+        "keen-slider-previous"
+      );
+      const keenSliderNext = document.getElementById("keen-slider-next");
+
+      keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+      keenSliderNext.addEventListener("click", () => keenSlider.next());
+    </script>
+
+    <section class="bg-white">
+      <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <h2
+          class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+        >
+          Berikut testimoni dan komentar dari customer kamii~
+        </h2>
+
+        <div class="mt-8">
+          <div id="keen-slider" class="keen-slider">
+            <div
+              class="keen-slider__slide opacity-40 transition-opacity duration-500"
+            >
+              <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                <div class="flex items-center gap-4">
+                  <img
+                    alt=""
+                    src="https://images.unsplash.com/photo-1553457055-88e354f1257c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExOXx8fGVufDB8fHx8fA%3D%3D"
+                    class="size-14 rounded-full object-cover"
+                  />
+
+                  <div>
+                    <div class="flex justify-center gap-0.5 text-green-500">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                    </div>
+
+                    <p class="mt-0.5 text-lg font-medium text-gray-900">
+                      Cokii
+                    </p>
+                  </div>
+                </div>
+
+                <p class="mt-4 text-gray-700">
+                  Serius cuy bahan produknya bagus banget, real-pict juga.
+                  Recomend banget dah pokoknya
+                </p>
+              </blockquote>
+            </div>
+
+            <div
+              class="keen-slider__slide opacity-40 transition-opacity duration-500"
+            >
+              <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                <div class="flex items-center gap-4">
+                  <img
+                    alt=""
+                    src="https://images.unsplash.com/photo-1608533635246-800ee55aa8ab?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwOXx8fGVufDB8fHx8fA%3D%3D"
+                    class="size-14 rounded-full object-cover"
+                  />
+
+                  <div>
+                    <div class="flex justify-center gap-0.5 text-green-500">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="grey"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                    </div>
+
+                    <p class="mt-0.5 text-lg font-medium text-gray-900">
+                      Kevin Julian
+                    </p>
+                  </div>
+                </div>
+
+                <p class="mt-4 text-gray-700">
+                  Menurutku barang nya oke, cuman ada yg kurang. Yang kurang nya
+                  tuh, napa diskonnya 1 tahun sekali di tgl 12 bulan 12 :V
+                  Bintangnya kurangin satu dah ah :(
+                </p>
+              </blockquote>
+            </div>
+
+            <div
+              class="keen-slider__slide opacity-40 transition-opacity duration-500"
+            >
+              <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                <div class="flex items-center gap-4">
+                  <img
+                    alt=""
+                    src="https://images.unsplash.com/photo-1456327102063-fb5054efe647?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwNnx8fGVufDB8fHx8fA%3D%3D"
+                    class="size-14 rounded-full object-cover"
+                  />
+
+                  <div>
+                    <div class="flex justify-center gap-0.5 text-green-500">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                    </div>
+
+                    <p class="mt-0.5 text-lg font-medium text-gray-900">
+                      Shaynee
+                    </p>
+                  </div>
+                </div>
+
+                <p class="mt-4 text-gray-700">
+                  Pacarku heran, katanya "kok cowo bisa beli baju yang bahan nya
+                  bagus." pas gwa kasih tau harga nya berapa, eh dia malah
+                  tepar, padahal harganya B aja.
+                </p>
+              </blockquote>
+            </div>
+
+            <div
+              class="keen-slider__slide opacity-40 transition-opacity duration-500"
+            >
+              <blockquote class="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                <div class="flex items-center gap-4">
+                  <img
+                    alt=""
+                    src="https://images.unsplash.com/photo-1568048496249-390708208038?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI3fHx8ZW58MHx8fHx8"
+                    class="size-14 rounded-full object-cover"
+                  />
+
+                  <div>
+                    <div class="flex justify-center gap-0.5 text-green-500">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewBox="0 0 20 20"
+                        fill="indigo"
+                      >
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                        />
+                      </svg>
+                    </div>
+
+                    <p class="mt-0.5 text-lg font-medium text-gray-900">
+                      Dinda A
+                    </p>
+                  </div>
+                </div>
+
+                <p class="mt-4 text-gray-700">
+                  Dikira bakal dikirim lap dapur soalnya harga nya gak wajar, eh
+                  pas dateng, pen nangis liat barang nya kok bisa sebagus dan
+                  se-realpict ini. Aku beli nya pas 12.12 sih, kata orang, hoki
+                  setahun ku dah abis kepake buat beli ini
+                </p>
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-center justify-center gap-4">
+            <button
+              aria-label="Previous slide"
+              id="keen-slider-previous"
+              class="text-gray-600 transition-colors hover:text-gray-900"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="indigo"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+
+            <p class="w-16 text-center text-sm text-gray-700">
+              <span id="keen-slider-active"></span>
+              /
+              <span id="keen-slider-count"></span>
+            </p>
+
+            <button
+              aria-label="Next slide"
+              id="keen-slider-next"
+              class="text-gray-600 transition-colors hover:text-gray-900"
+            >
+              <svg
+                class="size-5"
+                fill="none"
+                stroke="indigo"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END TESTIMONIAL -->
+
+    <!-- FOOTER -->
+    <footer class="bg-indigo-600">
+      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <p class="text-sm text-white lg:mt-0">
+            @Copyright by 22552011171_EGA-SULANJANA_TIF-22-CID
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- END FOOTER -->
+  </body>
+  <script>
+    const strong = document.getElementById("uname");
+    const dataUser = JSON.parse(localStorage.getItem("dataUser"));
+    strong.innerText = dataUser.uname;
+  </script>
+</html>
