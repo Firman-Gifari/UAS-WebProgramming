@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Detail</title>
+  </head>
+  <body class="container mx-auto">
+    <h1 class="font-bold my-4">Details</h1>
+    <div class="flex gap-10">
+      <div>
+        <img
+          src="https://i.pinimg.com/736x/f7/c2/23/f7c2234b3e03fc0ff4c7eef0c7d1c37e.jpg"
+          alt=""
+        />
+      </div>
+      <div class="flow-root">
+        <dl class="-my-3 divide-y divide-gray-100 text-sm">
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">Name</dt>
+            <dd class="text-gray-700 sm:col-span-2">Muslim Outfit</dd>
+          </div>
+
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">Harga</dt>
+            <dd class="text-gray-700 sm:col-span-2">Rp. 200.000</dd>
+          </div>
+
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">Rating</dt>
+            <dd class="text-gray-700 sm:col-span-2">⭐⭐⭐⭐⭐</dd>
+          </div>
+
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">Deskripsi</dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et
+              facilis debitis explicabo doloremque impedit nesciunt dolorem
+              facere, dolor quasi veritatis quia fugit aperiam aspernatur neque
+              molestiae labore aliquam soluta architecto?
+              <a href="" class="text-blue-500">Lihat selengkapnya ...</a>
+            </dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">Jumlah</dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              <div>
+                <label for="Quantity" class="sr-only"> Quantity </label>
+                <div
+                  class="flex items-center rounded border border-gray-200 w-36"
+                >
+                  <button
+                    type="button"
+                    class="size-10 leading-10 text-gray-600 transition hover:opacity-75"
+                  >
+                    &minus;
+                  </button>
+
+                  <input
+                    type="number"
+                    id="Quantity"
+                    value="1"
+                    class="h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                  />
+
+                  <button
+                    type="button"
+                    class="size-10 leading-10 text-gray-600 transition hover:opacity-75"
+                  >
+                    &plus;
+                  </button>
+                </div>
+              </div>
+            </dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">Varian</dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              <div
+                class="inline-flex rounded-lg border border-gray-100 bg-gray-100 p-1"
+              >
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  Putih
+                </button>
+
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  Ireng
+                </button>
+
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  Biru
+                </button>
+                <button
+                  class="inline-block rounded-md bg-white px-4 py-2 text-sm text-blue-500 shadow-sm focus:relative"
+                >
+                  Abu-abu
+                </button>
+
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  Hijau
+                </button>
+
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  Kuning
+                </button>
+              </div>
+            </dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900">Ukuran</dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              <div
+                class="inline-flex rounded-lg border border-gray-100 bg-gray-100 p-1"
+              >
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  M
+                </button>
+
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  S
+                </button>
+
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  X
+                </button>
+                <button
+                  class="inline-block rounded-md bg-white px-4 py-2 text-sm text-blue-500 shadow-sm focus:relative"
+                >
+                  XL
+                </button>
+
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  XXL
+                </button>
+
+                <button
+                  class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+                >
+                  XXXL
+                </button>
+              </div>
+            </dd>
+          </div>
+          <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+            <dt class="font-medium text-gray-900"></dt>
+            <dd class="text-gray-700 sm:col-span-2">
+              <a
+                class="inline-block bg-transparent rounded border border-gray-700 px-12 py-3 text-sm font-medium text-gray-700 focus:outline-none focus:ring hover:scale-90"
+                href="#"
+              >
+                Keranjang
+              </a>
+              <a
+                class="inline-block rounded border border-gray-700 bg-gray-700 px-12 py-3 text-sm font-medium text-white focus:outline-none focus:ring hover:scale-90"
+                href="#"
+              >
+                Checkout
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>
