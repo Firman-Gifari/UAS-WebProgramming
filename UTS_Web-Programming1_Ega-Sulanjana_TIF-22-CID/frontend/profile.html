@@ -12,7 +12,11 @@
       <div class="container mx-auto flex justify-between items-center px-4">
         <div class="flex items-center space-x-4">
           <a href="landingpage.html">
-            <img class="h-10 filter invert brightness-0" src="../img/arrowBack.png" alt="Kembali" />
+            <img
+              class="h-10 filter invert brightness-0"
+              src="./img/arrowBack.png"
+              alt="Kembali"
+            />
           </a>
           <h1 class="text-2xl font-bold">Profil Pengguna</h1>
         </div>
@@ -26,128 +30,218 @@
         class="h-64 w-full object-cover"
       />
 
-    <!-- MAIN CONTENT -->
-    <main class="container mx-auto mt-8 max-w-4xl px-4 pb-10">
-      <div class="bg-white shadow rounded-lg p-6">
+      <!-- MAIN CONTENT -->
+      <main class="container mx-auto mt-8 max-w-4xl px-4 pb-10">
+        <div class="bg-white shadow rounded-lg p-6">
+          <!-- User Info -->
+          <div class="flex items-center space-x-4 border-b pb-6 mb-6">
+            <!-- Gambar Profil -->
+            <div class="relative">
+              <img
+                id="profileImage"
+                src="./img/User 1.png"
+                alt=""
+                class="rounded-full border"
+                style="width: 175px; height: 140px"
+              />
+              <label
+                for="profileImageInput"
+                class="absolute bottom-0 right-0 bg-indigo-600 text-white p-2 rounded-full cursor-pointer"
+              >
+                <img src="./img/Edit.png" alt="" class="h-6 w-6" />
+              </label>
+              <input
+                type="file"
+                id="profileImageInput"
+                accept="image/*"
+                class="hidden"
+              />
+            </div>
 
-        <!-- User Info -->
-        <div class="flex items-center space-x-4 border-b pb-6 mb-6">
-          <!-- Gambar Profil -->
-          <div class="relative">
-            <img id="profileImage" src="../img/User 1.png" alt="" class="rounded-full border" style="width: 175px; height: 140px;" />
-            <label for="profileImageInput" class="absolute bottom-0 right-0 bg-indigo-600 text-white p-2 rounded-full cursor-pointer">
-              <img src="../img/Edit.png" alt="" class="h-6 w-6" />
-            </label>
-            <input type="file" id="profileImageInput" accept="image/*" class="hidden" />
-          </div>
-
-          <div id="userInfo" class=" w-full flow-root rounded-lg border border-gray-100 py-3 shadow-sm">
-            <dl class="-my-3 divide-y divide-gray-100 text-sm">
-
-              <!-- Nama -->
-              <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">Nama Pengguna</dt>
-                <dd id="userName" class="text-gray-700 sm:col-span-2">Tamu</dd>
-              </div>
-
-              <!-- Email -->
-              <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">Email</dt>
-                <dd id="userEmail" class="text-gray-700 sm:col-span-2">Tidak diketahui</dd>
-              </div>
-
-              <!-- Nomor Telepon -->
-              <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">Nomor Telepon</dt>
-                <dd id="userPhone" class="text-gray-700 sm:col-span-2 flex items-center justify-between">
-                  <span id="phoneText">Tidak diketahui</span>
-                  <img src="../img/Edit.png" alt="" class="h-5 w-5 ml-2 cursor-pointer" id="editPhone" />
-                </dd>
-                <div id="phoneInputContainer" class="hidden sm:col-span-2 flex items-center justify-between">
-                  <input
-                    type="tel"
-                    id="userPhoneInput"
-                    placeholder="Masukkan nomor telepon"
-                    class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-                  />
-                  <button id="savePhone" class="ml-2 text-blue-500">Simpan</button>
+            <div
+              id="userInfo"
+              class="w-full flow-root rounded-lg border border-gray-100 py-3 shadow-sm"
+            >
+              <dl class="-my-3 divide-y divide-gray-100 text-sm">
+                <!-- Nama -->
+                <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                  <dt class="font-medium text-gray-900">Nama Pengguna</dt>
+                  <dd id="userName" class="text-gray-700 sm:col-span-2">
+                    Tamu
+                  </dd>
                 </div>
-              </div>              
 
-              <!-- Jenis Kelamin -->
-              <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">Jenis Kelamin</dt>
-                <dd id="userGender" class="text-gray-700 sm:col-span-2 flex items-center justify-between">
-                  <span id="genderText">Tidak diketahui</span>
-                  <select id="genderSelect" class="ml-4 mt-1.5 rounded-lg border-gray-300 text-gray-700 sm:text-sm hidden">
-                    <option value="">Pilih Jenis Kelamin</option>
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                  </select>
-                  <img src="../img/Dropdown.png" alt="" id="editGender" class="h-5 w-5 ml-2 cursor-pointer" style="transform: rotate(-90deg);">
-                </dd>
-              </div>     
+                <!-- Email -->
+                <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                  <dt class="font-medium text-gray-900">Email</dt>
+                  <dd id="userEmail" class="text-gray-700 sm:col-span-2">
+                    Tidak diketahui
+                  </dd>
+                </div>
 
-              <!-- Tanggal Lahir -->
-              <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">Tanggal Lahir</dt>
-                <dd id="userBirth" class="text-gray-700 sm:col-span-2 flex items-center justify-between">
-                  <span id="birthText">Tidak diketahui</span>
-                  <img src="../img/Edit.png" alt="" id="editBirth" class="h-5 w-5 ml-2 cursor-pointer" />
-                </dd>
-              </div>
-              <div id="birthDatePopup" class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 z-50 flex items-center justify-center">
-                <div class="bg-white rounded-lg p-6 w-1/2">
-                  <h3 class="text-xl font-semibold mb-4">Pilih Tanggal Lahir</h3>
-                  <input type="date" id="popupBirthDateInput" class="rounded-md border-gray-200 shadow-sm sm:text-sm mb-4 w-full" />
-                  <div class="flex justify-end">
-                    <button id="saveBirthPopup" class="bg-blue-500 text-white rounded-md px-4 py-2 hover:bg-blue-600">Simpan</button>
-                    <button id="cancelBirthPopup" class="ml-2 bg-gray-300 text-gray-800 rounded-md px-4 py-2 hover:bg-gray-400">Batal</button>
+                <!-- Nomor Telepon -->
+                <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                  <dt class="font-medium text-gray-900">Nomor Telepon</dt>
+                  <dd
+                    id="userPhone"
+                    class="text-gray-700 sm:col-span-2 flex items-center justify-between"
+                  >
+                    <span id="phoneText">Tidak diketahui</span>
+                    <img
+                      src="../img/Edit.png"
+                      alt=""
+                      class="h-5 w-5 ml-2 cursor-pointer"
+                      id="editPhone"
+                    />
+                  </dd>
+                  <div
+                    id="phoneInputContainer"
+                    class="hidden sm:col-span-2 flex items-center justify-between"
+                  >
+                    <input
+                      type="tel"
+                      id="userPhoneInput"
+                      placeholder="Masukkan nomor telepon"
+                      class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                    />
+                    <button id="savePhone" class="ml-2 text-blue-500">
+                      Simpan
+                    </button>
                   </div>
                 </div>
-              </div>
 
-              <!-- Alamat -->
-              <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-medium text-gray-900">Alamat</dt>
-                <dd id="userAddress" class="text-gray-700 sm:col-span-2 flex items-center justify-between">
-                  <span id="addressText">Tidak diketahui</span>
-                  <img id="editAddress" src="../img/Edit.png" alt="" class="h-5 w-5 ml-2 cursor-pointer" />
-                </dd>
-                <div id="addressInputContainer" class="hidden sm:col-span-2 flex items-center">
-                  <input type="text" id="userAddressInput" class="text-gray-700 p-2 border border-gray-300 rounded-md w-full" />
-                  <button id="saveAddress" class="ml-2 text-blue-500">Simpan</button>
+                <!-- Jenis Kelamin -->
+                <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                  <dt class="font-medium text-gray-900">Jenis Kelamin</dt>
+                  <dd
+                    id="userGender"
+                    class="text-gray-700 sm:col-span-2 flex items-center justify-between"
+                  >
+                    <span id="genderText">Tidak diketahui</span>
+                    <select
+                      id="genderSelect"
+                      class="ml-4 mt-1.5 rounded-lg border-gray-300 text-gray-700 sm:text-sm hidden"
+                    >
+                      <option value="">Pilih Jenis Kelamin</option>
+                      <option value="Laki-laki">Laki-laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
+                    <img
+                      src="../img/Dropdown.png"
+                      alt=""
+                      id="editGender"
+                      class="h-5 w-5 ml-2 cursor-pointer"
+                      style="transform: rotate(-90deg)"
+                    />
+                  </dd>
                 </div>
-              </div>     
-            </dl>
-          </div>          
-        </div>
 
-        <!-- Navigation Menu -->
-        <div class="grid grid-cols-1">
-          <a
-            href="login.html"
-            class="block rounded-lg bg-red-500 p-4 text-center shadow hover:bg-red-200"
-          >
-            <h3 class="text-lg font-medium text-white">Keluar</h3>
-          </a>
-        </div>
-      </div>
-    </main>
+                <!-- Tanggal Lahir -->
+                <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                  <dt class="font-medium text-gray-900">Tanggal Lahir</dt>
+                  <dd
+                    id="userBirth"
+                    class="text-gray-700 sm:col-span-2 flex items-center justify-between"
+                  >
+                    <span id="birthText">Tidak diketahui</span>
+                    <img
+                      src="../img/Edit.png"
+                      alt=""
+                      id="editBirth"
+                      class="h-5 w-5 ml-2 cursor-pointer"
+                    />
+                  </dd>
+                </div>
+                <div
+                  id="birthDatePopup"
+                  class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 z-50 flex items-center justify-center"
+                >
+                  <div class="bg-white rounded-lg p-6 w-1/2">
+                    <h3 class="text-xl font-semibold mb-4">
+                      Pilih Tanggal Lahir
+                    </h3>
+                    <input
+                      type="date"
+                      id="popupBirthDateInput"
+                      class="rounded-md border-gray-200 shadow-sm sm:text-sm mb-4 w-full"
+                    />
+                    <div class="flex justify-end">
+                      <button
+                        id="saveBirthPopup"
+                        class="bg-blue-500 text-white rounded-md px-4 py-2 hover:bg-blue-600"
+                      >
+                        Simpan
+                      </button>
+                      <button
+                        id="cancelBirthPopup"
+                        class="ml-2 bg-gray-300 text-gray-800 rounded-md px-4 py-2 hover:bg-gray-400"
+                      >
+                        Batal
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
-  <!-- FOOTER -->
-    <footer class="bg-indigo-600">
-      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-        <div class="text-center">
-          <p class="text-sm text-white lg:mt-0">
-            @Copyright by 22552011183_Kelompok 3 (Aridwan, Davin Albar Pratama, Dzikri Ali Al-Hafizhi, Ega Sulanjana, Firman Gifari)_TIF 22 CID_UASWEB1
-          </p>
+                <!-- Alamat -->
+                <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                  <dt class="font-medium text-gray-900">Alamat</dt>
+                  <dd
+                    id="userAddress"
+                    class="text-gray-700 sm:col-span-2 flex items-center justify-between"
+                  >
+                    <span id="addressText">Tidak diketahui</span>
+                    <img
+                      id="editAddress"
+                      src="../img/Edit.png"
+                      alt=""
+                      class="h-5 w-5 ml-2 cursor-pointer"
+                    />
+                  </dd>
+                  <div
+                    id="addressInputContainer"
+                    class="hidden sm:col-span-2 flex items-center"
+                  >
+                    <input
+                      type="text"
+                      id="userAddressInput"
+                      class="text-gray-700 p-2 border border-gray-300 rounded-md w-full"
+                    />
+                    <button id="saveAddress" class="ml-2 text-blue-500">
+                      Simpan
+                    </button>
+                  </div>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Navigation Menu -->
+          <div class="grid grid-cols-1">
+            <a
+              href="login.html"
+              class="block rounded-lg bg-red-500 p-4 text-center shadow hover:bg-red-200"
+            >
+              <h3 class="text-lg font-medium text-white">Keluar</h3>
+            </a>
+          </div>
         </div>
-      </div>
-    </footer>
-  </div>
-  <!-- END FOOTER -->
-    
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="bg-indigo-600">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <p class="text-sm text-white lg:mt-0">
+              @Copyright by 22552011183_Kelompok 3 (Aridwan, Davin Albar
+              Pratama, Dzikri Ali Al-Hafizhi, Ega Sulanjana, Firman Gifari)_TIF
+              22 CID_UASWEB1
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- END FOOTER -->
+
     <script>
       const profileImageInput = document.getElementById("profileImageInput");
       const profileImage = document.getElementById("profileImage");
@@ -165,7 +259,9 @@
       const userPhone = document.getElementById("userPhone");
       const phoneText = document.getElementById("phoneText");
       const editPhone = document.getElementById("editPhone");
-      const phoneInputContainer = document.getElementById("phoneInputContainer");
+      const phoneInputContainer = document.getElementById(
+        "phoneInputContainer"
+      );
       const userPhoneInput = document.getElementById("userPhoneInput");
       const savePhone = document.getElementById("savePhone");
 
@@ -173,14 +269,18 @@
       const editBirth = document.getElementById("editBirth");
       const birthText = document.getElementById("birthText");
       const birthDatePopup = document.getElementById("birthDatePopup");
-      const popupBirthDateInput = document.getElementById("popupBirthDateInput");
+      const popupBirthDateInput = document.getElementById(
+        "popupBirthDateInput"
+      );
       const saveBirthPopup = document.getElementById("saveBirthPopup");
       const cancelBirthPopup = document.getElementById("cancelBirthPopup");
 
       const userAddress = document.getElementById("userAddress");
       const addressText = document.getElementById("addressText");
       const editAddress = document.getElementById("editAddress");
-      const addressInputContainer = document.getElementById("addressInputContainer");
+      const addressInputContainer = document.getElementById(
+        "addressInputContainer"
+      );
       const userAddressInput = document.getElementById("userAddressInput");
       const saveAddress = document.getElementById("saveAddress");
 
@@ -198,13 +298,13 @@
       }
 
       // Event untuk menangkap perubahan file input
-      profileImageInput.addEventListener("change", function(event) {
+      profileImageInput.addEventListener("change", function (event) {
         const file = event.target.files[0];
         if (file) {
           const reader = new FileReader();
-          reader.onload = function(e) {
+          reader.onload = function (e) {
             const imageBase64 = e.target.result;
-            profileImage.src = imageBase64
+            profileImage.src = imageBase64;
             saveProfileImageToLocalStorage(imageBase64);
           };
           reader.readAsDataURL(file);
@@ -228,8 +328,8 @@
 
       // Event untuk membuka dropdown saat ikon edit diklik
       editGender.addEventListener("click", () => {
-        genderText.classList.add("hidden"); 
-        genderSelect.classList.remove("hidden"); 
+        genderText.classList.add("hidden");
+        genderSelect.classList.remove("hidden");
       });
 
       // Event untuk menyimpan data saat dropdown berubah
@@ -238,36 +338,36 @@
         genderText.textContent = selectedGender;
         genderText.classList.remove("hidden");
         genderSelect.classList.add("hidden");
-        dataUser.gender = selectedGender; 
+        dataUser.gender = selectedGender;
         localStorage.setItem("dataUser", JSON.stringify(dataUser));
       });
 
       // Event untuk membuka input nomor telepon saat ikon edit diklik
       editPhone.addEventListener("click", () => {
-        phoneText.classList.add("hidden"); 
-        phoneInputContainer.classList.remove("hidden"); 
-        userPhoneInput.value = dataUser.phone || ""; 
+        phoneText.classList.add("hidden");
+        phoneInputContainer.classList.remove("hidden");
+        userPhoneInput.value = dataUser.phone || "";
       });
 
       // Event untuk menyimpan nomor telepon saat tombol simpan diklik
       savePhone.addEventListener("click", () => {
         const newPhone = userPhoneInput.value;
 
-      // Perbarui UI dan data di localStorage
+        // Perbarui UI dan data di localStorage
         if (newPhone) {
           phoneText.textContent = newPhone;
-          dataUser.phone = newPhone; 
+          dataUser.phone = newPhone;
           localStorage.setItem("dataUser", JSON.stringify(dataUser));
           phoneText.classList.remove("hidden");
           phoneInputContainer.classList.add("hidden");
         } else {
-            alert("Nomor telepon tidak valid");
+          alert("Nomor telepon tidak valid");
         }
       });
 
       // Fungsi untuk mengubah format tanggal dari YYYY-MM-DD menjadi DD/MM/YYYY
       function formatDate(dateString) {
-        const [year, month, day] = dateString.split('-');
+        const [year, month, day] = dateString.split("-");
         return `${day}/${month}/${year}`;
       }
 
@@ -275,9 +375,9 @@
       editBirth.addEventListener("click", () => {
         birthDatePopup.classList.remove("hidden");
         if (dataUser.birth) {
-          const dateParts = dataUser.birth.split('/');
+          const dateParts = dataUser.birth.split("/");
           const formattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
-          popupBirthDateInput.value = formattedDate; 
+          popupBirthDateInput.value = formattedDate;
         }
       });
 
@@ -287,8 +387,8 @@
         if (newBirth) {
           const formattedDate = formatDate(newBirth);
           birthText.textContent = formattedDate;
-          dataUser.birth = formattedDate; 
-          localStorage.setItem("dataUser", JSON.stringify(dataUser)); 
+          dataUser.birth = formattedDate;
+          localStorage.setItem("dataUser", JSON.stringify(dataUser));
           birthDatePopup.classList.add("hidden");
         } else {
           alert("Tanggal lahir tidak valid");
@@ -297,14 +397,14 @@
 
       // Event untuk membatalkan perubahan tanggal lahir
       cancelBirthPopup.addEventListener("click", () => {
-        birthDatePopup.classList.add("hidden"); 
+        birthDatePopup.classList.add("hidden");
       });
 
       // Event untuk membuka input alamat saat ikon edit diklik
       editAddress.addEventListener("click", () => {
-        addressText.classList.add("hidden"); 
-        addressInputContainer.classList.remove("hidden"); 
-        userAddressInput.value = dataUser.address || ""; 
+        addressText.classList.add("hidden");
+        addressInputContainer.classList.remove("hidden");
+        userAddressInput.value = dataUser.address || "";
       });
 
       // Event untuk menyimpan alamat saat tombol simpan diklik
